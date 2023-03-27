@@ -6,9 +6,10 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		AtmOperationInterf op = new AtmOperationImplementation();
 		int atmnumber = 12345;
 		int atmpin = 123;
-		Atm atm = new Atm();
+	
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Welcome to ATM Machine");
 		System.out.print("Enter ATM Number: ");
@@ -21,16 +22,21 @@ public class MainClass {
 				System.out.println("1. View Available Balance\n2. Withdrawl Amount\n3. Deposit Amoount\n4. View Mini Statement\n5. Exit");
 				int ch=sc.nextInt();
 				switch(ch) {
-					case 1: System.out.println("Available balance is:" +atm.getBalance() );
+					case 1: op.viewBalance();
 							break;
 				
-					case 2: System.out.println("Withdrawl Amount is:");
+					case 2: System.out.print("Enter the Amount to Withdrawl: ");
+							double withdrawlAmount = sc.nextDouble();
+							op.withdrawlAmount(withdrawlAmount);
 							break;
 							
-					case 3: System.out.println("Deposit Amount is: ");
+					case 3: System.out.print("Enter Amount to Deposit: ");
+							double depositamount =sc.nextDouble();
+							op.depositAmount(depositamount);
+							
 					 		break;
 					 		
-					case 4: System.out.println("Mini Statement is: ");
+					case 4: op.viewMiniStatement();
 							break;
 							
 					case 5: System.out.println("Kindly take your Atm card out and Thanks for using ATM machine.");
